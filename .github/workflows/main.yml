@@ -21,8 +21,8 @@ jobs:
       - name: Test
         run: make -i
       - name: Test with shell
-        run: make -i SHELL='C:/Program Files/Git/usr/bin/bash'
+        run: make -i SHELL='C:/Program Files/Git/bin/sh.exe'
       - name: Test in subdir
         run: make -i -C sub
       - name: Test with shell in subdir
-        run: make -i SHELL='C:/Program Files/Git/usr/bin/bash' -C sub
+        run: make -i SHELL='C:/Program Files/Git/bin/sh.exe' -C sub
