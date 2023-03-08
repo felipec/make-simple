@@ -1,0 +1,12 @@
+on:
+  push:
+
+jobs:
+  test-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test
+        run: |
+          $env:Path = "C:/Windows/System32;$env:Path"
+          bash --version
