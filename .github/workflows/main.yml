@@ -1,0 +1,13 @@
+on:
+  push:
+
+jobs:
+  test-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Direct
+        continue-on-error: true
+        run: bash foo.t
+      - name: Make
+        run: make test
