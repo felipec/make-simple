@@ -22,5 +22,7 @@ jobs:
         run: make
       - name: Test with shell
         run: make SHELL='C:/Program Files/Git/usr/bin/bash'
+      - name: Test in subdir
+        run: make -C sub
       - name: Test with shell in subdir
         run: make SHELL='C:/Program Files/Git/usr/bin/bash' -C sub
