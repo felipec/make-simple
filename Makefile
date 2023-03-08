@@ -1,4 +1,4 @@
-all: info test sub-info sub-test
+all: info test straight-test sub-info sub-test sub-straight
 
 info:
 	$(info ## $@)
@@ -9,6 +9,10 @@ test:
 	$(info ## $@)
 	sub/foo.t
 
+straight-test:
+	$(info ## $@)
+	bash -c sub/foo.t
+
 sub-info:
 	$(info ## $@)
 	$(MAKE) -C sub info
@@ -17,4 +21,8 @@ sub-test:
 	$(info ## $@)
 	$(MAKE) -C sub test
 
-.PHONY: info test sub-info sub-test
+sub-straight:
+	$(info ## $@)
+	$(MAKE) -C sub straight-test
+
+.PHONY: info test straight-test sub-info sub-test sub-straight

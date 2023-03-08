@@ -1,4 +1,4 @@
-all: info test
+all: info test straight-test
 
 info:
 	$(info sub SHELL $(SHELL))
@@ -7,4 +7,7 @@ info:
 test:
 	./foo.t
 
-.PHONY: info test
+straight-test:
+	bash -c ./foo.t
+
+.PHONY: info test straight-test
