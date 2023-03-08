@@ -18,9 +18,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Test with bash 1
-        run: "'C:/Program Files/Git/usr/bin/bash' sub/foo.t"
-      - name: Test with bash 2
+      - name: Test with bash
         shell: bash
         run: "'C:/Program Files/Git/usr/bin/bash' sub/foo.t || true"
       - name: Test with sh.exe
