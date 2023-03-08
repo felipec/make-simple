@@ -17,4 +17,4 @@ sub-test:
 	$(info ## $@)
 	$(MAKE) -C sub test
 
-.PHONY: info test test-sub
+.PHONY: info test sub-info sub-test
