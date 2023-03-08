@@ -1,0 +1,28 @@
+on:
+  push:
+
+jobs:
+  test:
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Test
+        run: make
+  test-windows:
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Test
+        run: make
+      - name: Test with shell
+        run: make SHELL='C:/Program Files/Git/usr/bin/bash'
+      - name: Test in subdir
+        run: make -C sub
+      - name: Test with shell in subdir
+        run: make SHELL='C:/Program Files/Git/usr/bin/bash' -C sub
