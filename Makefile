@@ -17,4 +17,7 @@ sub-test:
 	$(info ## $@)
 	$(MAKE) -C sub test
 
-.PHONY: info test sub-info sub-test
+paths:
+	bash -c ./paths.sh
+
+.PHONY: info test sub-info sub-test paths
