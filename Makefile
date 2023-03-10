@@ -7,7 +7,7 @@ info:
 
 test:
 	$(info ## $@)
-	sub/foo.t
+	bash sub/foo.t
 
 sub-info:
 	$(info ## $@)
