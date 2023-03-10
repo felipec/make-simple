@@ -18,5 +18,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Test with debug
+      - name: Test with debug (good)
+        run: make -d SHELL='C:/Program Files/Git/bin/sh' test
+      - name: Test with debug (bad)
         run: make -d SHELL='C:/Program Files/Git/bin/sh.exe' test
