@@ -22,3 +22,8 @@ jobs:
         run: make -d SHELL='C:/Program Files/Git/bin/sh' test
       - name: Test with debug (bad)
         run: make -d SHELL='C:/Program Files/Git/bin/sh.exe' test
+      - name: Test directly
+        run: sub/foo.t
+      - name: Test directly with bash
+        shell: bash
+        run: sub/foo.t
