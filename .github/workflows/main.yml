@@ -18,11 +18,11 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Test
-        run: make -i
-      - name: Test with shell
+      - name: Test with default
+        run: make -i SHELL='C:/Program Files/Git/bin/sh.exe'
+      - name: Test with default (no exe)
+        run: make -i SHELL='C:/Program Files/Git/bin/sh'
+      - name: Test with bash
+        run: make -i SHELL='C:/Program Files/Git/usr/bin/bash.exe'
+      - name: Test with bash (no exe)
         run: make -i SHELL='C:/Program Files/Git/usr/bin/bash'
-      - name: Test in subdir
-        run: make -i -C sub
-      - name: Test with shell in subdir
-        run: make -i SHELL='C:/Program Files/Git/usr/bin/bash' -C sub
