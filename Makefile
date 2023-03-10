@@ -4,6 +4,8 @@ info:
 	$(info ## $@)
 	$(info main SHELL $(SHELL))
 	$(info main MAKE $(MAKE))
+	make --version
+	$(MAKE) --version
 
 test:
 	$(info ## $@)

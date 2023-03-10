@@ -18,6 +18,8 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Make version
+        run: make -v
       - name: Test
         run: make -i
       - name: Test with shell
