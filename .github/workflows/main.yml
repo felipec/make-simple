@@ -29,6 +29,7 @@ jobs:
           Start-Process -FilePath "bash" -Wait -NoNewWindow -ArgumentList "sub/foo.t"
       - name: Test with pwsh and new environment
         run: |
+          Get-Item Env:PATH
           Start-Process -FilePath "bash" -Wait -NoNewWindow -UseNewEnvironment -ArgumentList "sub/foo.t"
       - name: Test with pwsh and sh.exe
         run: |
