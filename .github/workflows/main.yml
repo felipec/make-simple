@@ -18,6 +18,12 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Print environment variables
+        run: |
+          Get-Variable
+          Get-Item Env:PATH
+          $env:path.Split(";")
+          Get-ChildItem Env:
       - name: Test direct
         run: bash sub/foo.t
       - name: Test with pwsh
@@ -29,7 +35,6 @@ jobs:
           Start-Process -FilePath "bash" -Wait -NoNewWindow -ArgumentList "sub/foo.t"
       - name: Test with pwsh and new environment
         run: |
-          Get-Item Env:PATH
           Start-Process -FilePath "bash" -Wait -NoNewWindow -UseNewEnvironment -ArgumentList "sub/foo.t"
       - name: Test with pwsh and sh.exe
         run: |
