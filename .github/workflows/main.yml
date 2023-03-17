@@ -22,17 +22,17 @@ jobs:
         run: bash sub/foo.t
       - name: Test with pwsh
         run: |
-          Start-Process -FilePath "bash" -Wait -ArgumentList "sub/foo.t"
+          Start-Process -FilePath "bash" -Wait -NoNewWindow -ArgumentList "sub/foo.t"
       - name: Test with pwsh and no path
         run: |
           $env:Path = ''
-          Start-Process -FilePath "bash" -Wait -ArgumentList "sub/foo.t"
+          Start-Process -FilePath "bash" -Wait -NoNewWindow -ArgumentList "sub/foo.t"
       - name: Test with pwsh and new environment
         run: |
-          Start-Process -FilePath "bash" -Wait -UseNewEnvironment -ArgumentList "sub/foo.t"
+          Start-Process -FilePath "bash" -Wait -NoNewWindow -UseNewEnvironment -ArgumentList "sub/foo.t"
       - name: Test with pwsh and sh.exe
         run: |
-          Start-Process -FilePath "C:/Program Files/Git/bin/sh.exe" -Wait -ArgumentList "-c","sub/foo.t"
+          Start-Process -FilePath "C:/Program Files/Git/bin/sh.exe" -Wait -NoNewWindow -ArgumentList "-c","sub/foo.t"
       - name: Test with make and sh
         run: make -d -i SHELL='C:/Program Files/Git/bin/sh' test-foo
       - name: Test with make and sh.exe
