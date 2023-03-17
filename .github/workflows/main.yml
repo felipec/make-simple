@@ -18,12 +18,13 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Test foo
-        run: make -d -i test-foo
-      - name: Test bar
-        run: make -d -i test-bar
-      - name: Test bar with bash
-        run: make -d -i test-bar-bash
-      - name: Test bar with sh.exe
-        shell: bash
-        run: "\"C:/Program Files/Git/bin/sh.exe\" -c \"bash sub/bar.t\""
+      - name: Test direct
+        run: bash sub/foo.t
+      - name: Test with pwsh
+        run: |
+          Start-Process -FilePath "bash" -ArgumentList "sub/foo.t"
+      - name: Test with pwsh and sh.exe
+        run: |
+          Start-Process -FilePath "C:/Program Files/Git/bin/sh.exe" -ArgumentList "-c","sub/foo.t"
+      - name: Test with make
+        run: make -d -i SHELL='C:/Program Files/Git/bin/sh.exe' test-foo
