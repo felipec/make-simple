@@ -25,4 +25,5 @@ jobs:
       - name: Test bar with bash
         run: make -d -i test-bar-bash
       - name: Test bar with sh.exe
-        run: "C:/Program Files/Git/bin/sh.exe -c \"bash sub/bar.t\""
+        shell: bash
+        run: "\"C:/Program Files/Git/bin/sh.exe\" -c \"bash sub/bar.t\""
