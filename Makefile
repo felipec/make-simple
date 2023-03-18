@@ -1,4 +1,4 @@
-all: info test sub-info sub-test
+all: info test pwsh sub-info sub-test
 
 info:
 	$(info ## $@)
@@ -9,6 +9,10 @@ test:
 	$(info ## $@)
 	sub/foo.t
 
+pwsh:
+	$(info ## $@)
+	./pwsh.ps1
+
 sub-info:
 	$(info ## $@)
 	$(MAKE) -C sub info
@@ -17,4 +21,4 @@ sub-test:
 	$(info ## $@)
 	$(MAKE) -C sub test
 
-.PHONY: info test sub-info sub-test
+.PHONY: info test pwsh sub-info sub-test
