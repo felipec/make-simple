@@ -22,3 +22,5 @@ jobs:
         run: $Env:CC
       - name: Test
         run: make -i test-create-process
+      - name: Run create-process
+        run: "create-process.exe 'bash --version'"
