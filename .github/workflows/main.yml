@@ -2,15 +2,6 @@ on:
   push:
 
 jobs:
-  test:
-    continue-on-error: true
-    strategy:
-      fail-fast: false
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Test
-        run: make
   test-windows:
     continue-on-error: true
     strategy:
