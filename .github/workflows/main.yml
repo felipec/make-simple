@@ -6,6 +6,9 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Show CC
+        run: $Env:CC
       - name: Test
-        run: |
-          & 'C:/Program Files/Git/bin/sh.exe' 'foo.t'
+        run: make -i test-create-process
+      - name: Run create-process
+        run: "./create-process.exe 'bash --version'"
