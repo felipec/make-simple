@@ -14,4 +14,4 @@ jobs:
       - name: Test
         run: make -i test-create-process
       - name: Run create-process
-        run: "create-process.exe 'bash --version'"
+        run: "./create-process.exe 'bash --version'"
