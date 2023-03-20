@@ -22,6 +22,6 @@ sub-test:
 create-process: create-process.o
 
 test-create-process: create-process
-	create-process.exe "bash --version"
+	./create-process "bash --version"
 
 .PHONY: info test sub-info sub-test
