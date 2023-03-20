@@ -17,4 +17,9 @@ sub-test:
 	$(info ## $@)
 	$(MAKE) -C sub test
 
+create-process: create-process.o
+
+test-create-process: create-process
+	create-process.exe "bash --version"
+
 .PHONY: info test sub-info sub-test
