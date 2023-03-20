@@ -1,3 +1,5 @@
+CC := gcc
+
 all: info test sub-info sub-test
 
 info:
