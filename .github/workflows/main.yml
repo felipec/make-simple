@@ -12,12 +12,10 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Print make location
-        run: Get-Command make
-      - name: Print PATH
-        run: |
-          $env:Path = 'C:\mingw64\bin'
-          $env:Path
+      - name: Print sh.exe location
+        run: Get-Command sh.exe
+      - name: Print sh location
+        run: Get-Command sh
       - name: Test
         run: |
           $env:Path = 'C:\mingw64\bin'
