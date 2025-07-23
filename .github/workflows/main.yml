@@ -8,4 +8,4 @@ jobs:
       - uses: actions/checkout@v4
       - name: Test
         run: |
-          & 'C:\Program Files\Git\bin\sh.exe' 'foo.t'
+          & 'C:/Program Files/Git/bin/sh.exe' 'foo.t'
