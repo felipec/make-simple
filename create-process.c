@@ -1,17 +1,22 @@
 #include <stdio.h>
 #include <windows.h>
+#include <tchar.h>
 
 int main(int argc, char *argv[])
 {
-        STARTUPINFO si;
+        STARTUPINFO si = {0,};
         PROCESS_INFORMATION pi = {0,};
 
         if (argc < 2) return 1;
 
-        GetStartupInfo(&si);
-        si.dwFlags = STARTF_USESTDHANDLES;
+        // GetStartupInfo(&si);
+        // si.dwFlags = STARTF_USESTDHANDLES;
 
-        int r = CreateProcess(NULL, argv[1], NULL, 0, TRUE, 0, NULL, 0, &si, &pi);
+        si.cb = sizeof(si);
+
+        TCHAR cmd[] = TEXT("bash --version");
+
+        int r = CreateProcess(NULL, cmd, NULL, 0, TRUE, 0, NULL, 0, &si, &pi);
         printf("r = %d\n", r);
         if (!r) return 1;
 
