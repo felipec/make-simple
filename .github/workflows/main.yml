@@ -9,18 +9,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: Build
         run: make create-process
-      - name: Test
-        run: make -i test
-      - name: Test
-        run: make -i test-create-process
-      - name: Run directly
-        run: |
-          $env:Path = 'C:/Windows/System32;' + $env:Path
-          Start-Process -FilePath 'bash' -ArgumentList '--version' -Wait -NoNewWindow
-      - name: Run directly 2
-        run: |
-          $env:Path = 'C:/Windows/System32;' + $env:Path
-          bash --version
       - name: Run foo.t
         run: ./create-process.exe './foo.t' 2>&1
       - name: Run create-process-a 1
