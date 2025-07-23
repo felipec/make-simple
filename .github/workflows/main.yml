@@ -21,6 +21,8 @@ jobs:
         run: |
           $env:Path = 'C:/Windows/System32;' + $env:Path
           bash --version
+      - name: Run foo.t
+        run: ./create-process.exe './foo.t' 2>&1
       - name: Run create-process-a 1
         run: ./create-process.exe 'bash --version' 2>&1
       - name: Run create-process-a 4
