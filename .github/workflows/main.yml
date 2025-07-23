@@ -7,37 +7,18 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Fix WSL nonsense
-        run: |
-          Set-ItemProperty -Path 'C:\Windows\System32\bash.exe' -Name Attributes -Value Normal
-          Remove-Item -Force 'C:/Windows/System32/bash.exe'
       - name: Build
         run: make create-process
-      - name: Check system bash
-        run: Test-Path 'C:/Windows/System32/sh.exe' -PathType Leaf
       - name: Test
         run: make -i test
       - name: Test
         run: make -i test-create-process
       - name: Run directly
         run: |
-          Start-Process -FilePath 'bash' -ArgumentList '--version' -Wait -NoNewWindow
-      - name: Run directly 2
-        run: |
-          Start-Process -FilePath 'bash.exe' -ArgumentList '--version' -Wait -NoNewWindow
-      - name: Run create-process-b
-        run: |
-          & 'bash' --version 2>&1
-      - name: Run create-process-b 2
-        run: |
-          & 'bash.exe' --version 2>&1
+          $envVars = @{ PATH = "C:/Windows/System32;$env:PATH" }
+          Start-Process -FilePath 'bash' -ArgumentList '--version' -Wait -NoNewWindow -Environment $envVars
       - name: Run create-process-a 1
         run: ./create-process.exe 'bash --version' 2>&1
-      - name: Run create-process-a 2
-        run: ./create-process.exe 'bash.exe --version' 2>&1
-      - name: Run create-process-a 3
-        run: |
-          ./create-process.exe '"C:/Program Files/Git/bin/bash.exe" --version' 2>&1
       - name: Run create-process-a 4
         run: |
           ./create-process.exe '"C:/Windows/System32/bash.exe" --version' 2>&1
