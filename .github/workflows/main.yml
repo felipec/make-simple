@@ -13,10 +13,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Print PATH
-        run: $Env:Path
+        run: |
+          $Env:Path
+          $Env:SHELL
       - name: Print PATH bash
         shell: bash
-        run: echo $PATH
+        run: |
+          echo $PATH
+          echo $SHELL
       - name: Test
         shell: bash
         run: make -i SHELL='C:/Program Files/Git/bin/sh.exe'
