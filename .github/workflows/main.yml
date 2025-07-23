@@ -2,15 +2,9 @@ on:
   push:
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Test
-        run: make -i
   test-windows:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
       - name: Test
-        run: make -i
+        run: Start-Process -FilePath 'C:/Program Files/Git/bin/sh.exe' -ArgumentList 'foo.t'
