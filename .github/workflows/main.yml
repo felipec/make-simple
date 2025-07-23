@@ -16,9 +16,9 @@ jobs:
         run: Get-Command make
       - name: Print PATH
         run: |
-          $env:Path = ''
-          $Env:Path
+          $env:Path = 'C:\mingw64\bin'
+          $env:Path
       - name: Test
         run: |
-          $env:Path = ''
+          $env:Path = 'C:\mingw64\bin'
           make -i
