@@ -15,8 +15,12 @@ jobs:
         run: make -i test-create-process
       - name: Run directly
         run: |
-          $envVars = @{ PATH = "C:/Windows/System32;$env:PATH" }
-          Start-Process -FilePath 'bash' -ArgumentList '--version' -Wait -NoNewWindow -Environment $envVars
+          $env:Path = 'C:/Windows/System32;' + $env:Path
+          Start-Process -FilePath 'bash' -ArgumentList '--version' -Wait -NoNewWindow
+      - name: Run directly 2
+        run: |
+          $env:Path = 'C:/Windows/System32;' + $env:Path
+          bash --version
       - name: Run create-process-a 1
         run: ./create-process.exe 'bash --version' 2>&1
       - name: Run create-process-a 4
