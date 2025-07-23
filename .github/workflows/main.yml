@@ -7,4 +7,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Test
-        run: Start-Process -FilePath 'C:/Program Files/Git/bin/sh.exe' -ArgumentList 'foo.t'
+        run: |
+          & 'C:\Program Files\Git\bin\sh.exe' 'foo.t'
