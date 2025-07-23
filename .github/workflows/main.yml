@@ -12,5 +12,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Print PATH
+        run: $Env:Path
       - name: Test
         run: make -i SHELL='C:/Program Files/Git/bin/sh.exe'
