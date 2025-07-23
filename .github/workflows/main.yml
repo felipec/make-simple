@@ -15,10 +15,10 @@ jobs:
         run: make -i test-create-process
       - name: Run directly
         run: |
-          Start-Process -FilePath 'bash' -ArgumentList '--version' -Wait -NoNewWindow -PassThru
+          Start-Process -FilePath 'C:/Program Files/Git/bin/bash.exe' -ArgumentList '--version' -Wait -NoNewWindow -PassThru
       - name: Run create-process-b
         run: |
-          & bash --version 2>&1
+          & 'C:/Program Files/Git/bin/bash.exe' --version 2>&1
       - name: Run create-process-a
         run: ./create-process.exe 'bash --version' 2>&1
       - name: Run create-process

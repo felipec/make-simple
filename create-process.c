@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
         si.cb = sizeof(si);
 
-        TCHAR cmd[] = TEXT("bash --version");
+        TCHAR cmd[] = TEXT("\"C:/Program Files/Git/bin/bash.exe\" --version");
 
         int r = CreateProcess(NULL, cmd, NULL, 0, TRUE, 0, NULL, 0, &si, &pi);
         printf("r = %d\n", r);
