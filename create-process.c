@@ -14,9 +14,10 @@ int main(int argc, char *argv[])
 
         si.cb = sizeof(si);
 
-        // TCHAR cmd[] = TEXT("\"C:/Program Files/Git/bin/bash.exe\" --version");
-
-        int r = CreateProcess("C:/Program Files/Git/bin/bash.exe", "bash --version", NULL, 0, TRUE, 0, NULL, 0, &si, &pi);
+        // int r = CreateProcess("C:/Program Files/Git/bin/sh.exe", "bash --version", NULL, 0, TRUE, 0, NULL, 0, &si, &pi);
+        // int r = CreateProcess(NULL, "bash foo.t", NULL, 0, TRUE, 0, NULL, 0, &si, &pi);
+        int r = CreateProcess(NULL, "bash.exe ./foo.t", NULL, 0, TRUE, 0, NULL, 0, &si, &pi);
+        // int r = CreateProcess(NULL, "C:/Program Files/Git/bin/sh.exe ./foo.t", NULL, 0, TRUE, 0, NULL, 0, &si, &pi);
         printf("r = %d\n", r);
         if (!r) return 1;
 
