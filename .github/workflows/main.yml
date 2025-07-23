@@ -13,4 +13,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Test
-        run: make -i
+        run: make -i SHELL='C:/Program Files/Git/bin/sh.exe'

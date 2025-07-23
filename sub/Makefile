@@ -5,6 +5,6 @@ info:
 	$(info sub MAKE $(MAKE))
 
 test:
-	./foo.t
+	$(SHELL) ./foo.t
 
 .PHONY: info test
