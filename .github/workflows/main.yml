@@ -12,15 +12,13 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Print PATH
-        run: |
-          $Env:Path
-          $Env:SHELL
-      - name: Print PATH bash
+      - name: Print SHELL
+        run: $Env:SHELL
+      - name: Print COMSPEC
+        run: $Env:COMSPEC
+      - name: Print SHELL bash
         shell: bash
-        run: |
-          echo $PATH
-          echo $SHELL
+        run: echo $SHELL
       - name: Test
         shell: bash
-        run: make -i SHELL='C:/Program Files/Git/bin/sh.exe'
+        run: make -i
