@@ -11,8 +11,11 @@ jobs:
         run: make create-process
       - name: Test
         run: make -i test-create-process
+      - name: Run directly
+        run: |
+          Start-Process -FilePath 'bash' -ArgumentList '--version' -Wait
       - name: Run create-process-a
-        run: ./create-process.exe 'bash --version'
+        run: ./create-process.exe 'bash --version' 2>&1
       - name: Run create-process
         run: |
           & ./create-process.exe 'bash --version' 2>&1
