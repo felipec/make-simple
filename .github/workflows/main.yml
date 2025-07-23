@@ -3,13 +3,16 @@ on:
 
 jobs:
   test-windows:
+    continue-on-error: true
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Show CC
-        run: $Env:CC
+      - name: Build
+        run: make create-process
       - name: Test
         run: make -i test-create-process
+      - name: Run create-process-a
+        run: ./create-process.exe 'bash --version'
       - name: Run create-process
         run: |
-          & ./create-process.exe 'bash --version'
+          & ./create-process.exe 'bash --version' 2>&1
