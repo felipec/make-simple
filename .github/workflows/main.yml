@@ -12,7 +12,7 @@ jobs:
       - name: Check bash location
         run: Get-Command bash
       - name: Test
-        run: make -i test-create-process
+        run: make -d -i test-create-process
       - name: Run directly
         run: |
           Start-Process -FilePath 'C:/Program Files/Git/bin/bash.exe' -ArgumentList '--version' -Wait -NoNewWindow -PassThru
