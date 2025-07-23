@@ -12,10 +12,10 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Print SHELL
-        run: $Env:SHELL
-      - name: Print COMSPEC
-        run: $Env:COMSPEC
+      - name: Set PATH
+        run: $env:Path = ''
+      - name: Print PATH
+        run: $Env:Path
       - name: Print SHELL bash
         shell: bash
         run: echo $SHELL
