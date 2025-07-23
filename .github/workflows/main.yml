@@ -18,11 +18,16 @@ jobs:
       - name: Run directly
         run: |
           Start-Process -FilePath 'bash' -ArgumentList '--version' -Wait -NoNewWindow
+      - name: Run directly 2
+        run: |
+          Start-Process -FilePath 'bash.exe' -ArgumentList '--version' -Wait -NoNewWindow
       - name: Run create-process-b
         run: |
-          & 'C:/Program Files/Git/bin/bash.exe' --version 2>&1
+          & 'bash' --version 2>&1
+      - name: Run create-process-b 2
+        run: |
+          & 'bash.exe' --version 2>&1
       - name: Run create-process-a
         run: ./create-process.exe 'bash --version' 2>&1
-      - name: Run create-process
-        run: |
-          & ./create-process.exe 'bash --version' 2>&1
+      - name: Run create-process-a 2
+        run: ./create-process.exe 'bash.exe --version' 2>&1

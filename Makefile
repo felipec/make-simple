@@ -1,7 +1,7 @@
 CC := gcc
 
 test:
-	$(SHELL) ./foo.t
+	./foo.t
 
 create-process: create-process.o
 
