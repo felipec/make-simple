@@ -32,14 +32,18 @@ jobs:
       - name: Run create-process-a 2
         run: ./create-process.exe 'bash.exe --version' 2>&1
       - name: Run create-process-a 3
-        run: ./create-process.exe 'C:/Program Files/Git/bin/bash.exe' --version' 2>&1
+        run: |
+          ./create-process.exe '"C:/Program Files/Git/bin/bash.exe" --version' 2>&1
       - name: Run create-process-a 4
-        run: ./create-process.exe 'C:/Windows/System32/bash.exe' --version' 2>&1
+        run: |
+          ./create-process.exe '"C:/Windows/System32/bash.exe" --version' 2>&1
       - name: Run create-process-c 1
         run: ./create-process.exe 'sh --version' 2>&1
       - name: Run create-process-c 2
         run: ./create-process.exe 'sh.exe --version' 2>&1
       - name: Run create-process-c 3
-        run: ./create-process.exe 'C:/Program Files/Git/bin/sh.exe' --version' 2>&1
+        run: |
+          ./create-process.exe '"C:/Program Files/Git/bin/sh.exe" --version' 2>&1
       - name: Run create-process-c 4
-        run: ./create-process.exe 'C:/Windows/System32/sh.exe' --version' 2>&1
+        run: |
+          ./create-process.exe '"C:/Windows/System32/sh.exe" --version' 2>&1
