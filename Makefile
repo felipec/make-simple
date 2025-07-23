@@ -7,7 +7,7 @@ info:
 
 test:
 	$(info ## $@)
-	sub/foo.t
+	$(SHELL) sub/foo.t
 
 sub-info:
 	$(info ## $@)
