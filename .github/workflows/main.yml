@@ -9,5 +9,10 @@ jobs:
       - name: Direct
         continue-on-error: true
         run: bash foo.t
+      - name: Build
+        run: gcc create-process.c -o create-process
+      - name: Run create-process
+        continue-on-error: true
+        run: ./create-process.exe 'bash foo.t' 2>&1
       - name: Make
         run: make test
